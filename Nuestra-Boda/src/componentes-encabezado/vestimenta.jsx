@@ -551,7 +551,7 @@ export default function Vestimenta() {
                 sm:text-base
               "
             >
-              Recomendamos traje en gris claro, azul pastel u otros
+              Recomendamos traje en azul pastel u otros
               tonos suaves. También puedes optar por un blazer
               acompañado de pantalón formal.
             </p>

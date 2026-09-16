@@ -37,7 +37,7 @@ export default function Portada() {
       {/* IMAGEN PRINCIPAL */}
       <motion.img
         src="/portada.jpg"
-        alt="Paola y Jonathan"
+        alt="Jonathan y Paola"
         className="absolute inset-0 h-full w-full object-cover object-[center_40%]"
         initial={{
           opacity: 0,
@@ -154,7 +154,7 @@ export default function Portada() {
             ease: [0.22, 1, 0.36, 1],
           }}
         >
-          Paola
+          Jonathan
 
           <span
             className="
@@ -174,7 +174,7 @@ export default function Portada() {
             &
           </span>
 
-          Jonathan
+          Paola
         </motion.h1>
 
         {/* ESPACIO CENTRAL */}
@@ -626,7 +626,7 @@ export default function Portada() {
                     text-[#718275]
                   "
                 >
-                  Paola & Jonathan
+                Jonathan & Paola
                 </p>
               </div>
             </motion.div>
