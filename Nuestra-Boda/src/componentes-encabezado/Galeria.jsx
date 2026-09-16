@@ -37,7 +37,7 @@ const images = [
     position: "35% 50%",
   },
   {
-    src: "/Carrusel07.jpeg",
+    src: "/Carrusel07.jpg",
     position: "center 50%",
   },
 ];
