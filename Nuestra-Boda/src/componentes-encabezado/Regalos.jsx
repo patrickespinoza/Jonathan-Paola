@@ -1010,9 +1010,9 @@ export default function Regalos() {
                             break-all
                             font-mono
                             text-base
-                            tracking-[0.12em]
+                            tracking-[0.10em]
                             text-white
-                            sm:text-lg
+                            sm:text-base
                           "
                         >
                           {mostrarTarjeta

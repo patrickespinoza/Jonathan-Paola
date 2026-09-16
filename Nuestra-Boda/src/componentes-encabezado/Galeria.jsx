@@ -13,7 +13,7 @@ import {
 ========================================== */
 const images = [
   {
-    src: "/Carrusel01.jpeg",
+    src: "/Carrusel01v.jpeg",
     position: "center 50%",
   },
   {
@@ -34,7 +34,7 @@ const images = [
   },
   {
     src: "/Carrusel06.jpeg",
-    position: "center 50%",
+    position: "60% 50%",
   },
   {
     src: "/Carrusel07.jpeg",
