@@ -1,11 +1,6 @@
 import React, { useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  ChevronDown,
-  Music2,
-  Volume2,
-  VolumeX,
-} from "lucide-react";
+import { Music2, Volume2, VolumeX } from "lucide-react";
 import Countdown from "./componentes-encabezado/encabeza-cuenta";
 
 export default function Portada() {
@@ -32,41 +27,18 @@ export default function Portada() {
     setMostrarContenido(true);
   };
 
-  const bajarContenido = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: "smooth",
-    });
-  };
-
   return (
-    <section
-      className="
-        relative
-        min-h-screen
-        w-full
-        overflow-hidden
-        bg-black
-        text-white
-      "
-    >
+    <section className="relative min-h-screen w-full overflow-hidden bg-black text-white">
       {/* AUDIO */}
       <audio ref={audioRef} loop preload="auto">
-        <source src="/TylerShaw.mp3" type="audio/mpeg" />
+        <source src="/musica.mp3" type="audio/mpeg" />
       </audio>
 
       {/* IMAGEN PRINCIPAL */}
       <motion.img
-        src="/portada.png"
-        alt="María y Jonathan"
-        className="
-          absolute
-          inset-0
-          h-full
-          w-full
-          object-cover
-          object-[center_40%]
-        "
+        src="/portada.jpg"
+        alt="Paola y Jonathan"
+        className="absolute inset-0 h-full w-full object-cover object-[center_40%]"
         initial={{
           opacity: 0,
           scale: 1.08,
@@ -94,78 +66,21 @@ export default function Portada() {
       />
 
       {/* OSCURECIMIENTO GENERAL */}
-      <div
-        className="
-          absolute
-          inset-0
-          bg-black/20
-        "
-      />
+      <div className="absolute inset-0 bg-black/20" />
 
       {/* DEGRADADO SUPERIOR */}
-      <div
-        className="
-          absolute
-          inset-0
-          bg-gradient-to-b
-          from-black/45
-          via-transparent
-          to-transparent
-        "
-      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent" />
 
       {/* DEGRADADO INFERIOR */}
-      <div
-        className="
-          absolute
-          inset-0
-          bg-gradient-to-t
-          from-black/85
-          via-black/20
-          to-transparent
-        "
-      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-transparent" />
 
       {/* OSCURECIMIENTO LATERAL PARA COMPUTADORA */}
-      <div
-        className="
-          absolute
-          inset-0
-          hidden
-          bg-gradient-to-r
-          from-black/35
-          via-transparent
-          to-black/15
-          md:block
-        "
-      />
+      <div className="absolute inset-0 hidden bg-gradient-to-r from-black/35 via-transparent to-black/15 md:block" />
 
       {/* MARCOS */}
-      <div
-        className="
-          pointer-events-none
-          absolute
-          inset-3
-          z-20
-          border
-          border-white/30
-          sm:inset-5
-          md:inset-7
-        "
-      />
+      <div className="pointer-events-none absolute inset-3 z-20 border border-white/30 sm:inset-5 md:inset-7" />
 
-      <div
-        className="
-          pointer-events-none
-          absolute
-          inset-[18px]
-          z-20
-          border
-          border-white/10
-          sm:inset-7
-          md:inset-9
-        "
-      />
+      <div className="pointer-events-none absolute inset-[18px] z-20 border border-white/10 sm:inset-7 md:inset-9" />
 
       {/* CONTENIDO SOBRE LA IMAGEN */}
       <motion.div
@@ -177,16 +92,17 @@ export default function Portada() {
           w-full
           flex-col
           items-center
-          justify-end
+          justify-between
           px-6
-          pb-10
-          pt-28
+          pb-6
+          pt-16
           text-center
           sm:px-8
-          sm:pb-14
-          md:justify-center
+          sm:pb-8
+          sm:pt-20
+          md:px-12
           md:pb-10
-          lg:px-12
+          md:pt-10
         "
         initial={{
           opacity: 0,
@@ -205,181 +121,106 @@ export default function Portada() {
           delay: 0.2,
         }}
       >
-        <div
+        {/* NOMBRES EN LA PARTE SUPERIOR */}
+        <motion.h1
           className="
-            flex
             w-full
-            max-w-3xl
-            flex-col
-            items-center
+            font-serif
+            text-[3.6rem]
+            font-normal
+            leading-[0.78]
+            tracking-[-0.055em]
+            text-white
+            drop-shadow-[0_4px_20px_rgba(0,0,0,0.75)]
+            sm:text-[4.8rem]
+            md:text-[5.8rem]
+            lg:text-[5.8rem]
           "
+          initial={{
+            opacity: 0,
+            y: -35,
+          }}
+          animate={
+            mostrarContenido
+              ? {
+                  opacity: 1,
+                  y: 0,
+                }
+              : {}
+          }
+          transition={{
+            duration: 1.1,
+            delay: 0.55,
+            ease: [0.22, 1, 0.36, 1],
+          }}
         >
+          Paola
 
-
-          {/* NOMBRES */}
-          <motion.h1
+          <span
             className="
-              mt-6
-              font-serif
-              text-[3.8rem]
+              my-2
+              block
+              font-cursiveDancing
+              text-[2.6rem]
               font-normal
-              leading-[0.8]
-              tracking-[-0.055em]
-              text-white
-              drop-shadow-[0_4px_20px_rgba(0,0,0,0.55)]
-              sm:text-[5rem]
-              md:mt-8
-              md:text-[6rem]
-              lg:text-[7.4rem]
+              leading-none
+              text-[#E6C98D]
+              drop-shadow-md
+              sm:text-[3.5rem]
+              md:my-3
+              md:text-[4rem]
             "
-            initial={{
-              opacity: 0,
-              y: 35,
-            }}
-            animate={
-              mostrarContenido
-                ? {
-                    opacity: 1,
-                    y: 0,
-                  }
-                : {}
-            }
-            transition={{
-              duration: 1.1,
-              delay: 0.55,
-              ease: [0.22, 1, 0.36, 1],
-            }}
           >
-            María
+            &
+          </span>
 
-            <span
-              className="
-                my-2
-                block
-                font-cursiveDancing
-                text-[2.8rem]
-                font-normal
-                leading-none
-                text-[#E6C98D]
-                drop-shadow-md
-                sm:text-[3.8rem]
-                md:my-3
-                md:text-[4.4rem]
-              "
-            >
-              &
-            </span>
+          Jonathan
+        </motion.h1>
 
-            Jonathan
-          </motion.h1>
+        {/* ESPACIO CENTRAL */}
+        <div className="flex-1" />
 
+        {/* CUENTA REGRESIVA */}
+        <motion.div
+          className="
+            w-full
+            max-w-[620px]
+            rounded-[24px]
+            border
+            border-white/25
+            bg-black/25
+            px-3
+            py-4
+            shadow-[0_18px_55px_rgba(0,0,0,0.30)]
+            backdrop-blur-md
+            sm:px-6
+            sm:py-5
+          "
+          initial={{
+            opacity: 0,
+            y: 25,
+            scale: 0.97,
+          }}
+          animate={
+            mostrarContenido
+              ? {
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                }
+              : {}
+          }
+          transition={{
+            duration: 1,
+            delay: 1,
+          }}
+        >
+          <p className="mb-4 text-[8px] uppercase tracking-[0.45em] text-white/75 sm:text-[9px]">
+            Faltan
+          </p>
 
-          {/* CUENTA REGRESIVA */}
-          <motion.div
-            className="
-              mt-7
-              w-full
-              max-w-[620px]
-              rounded-[24px]
-              border
-              border-white/25
-              bg-black/20
-              px-3
-              py-4
-              shadow-[0_18px_55px_rgba(0,0,0,0.22)]
-              backdrop-blur-md
-              sm:mt-9
-              sm:px-6
-              sm:py-5
-            "
-            initial={{
-              opacity: 0,
-              y: 25,
-              scale: 0.97,
-            }}
-            animate={
-              mostrarContenido
-                ? {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                  }
-                : {}
-            }
-            transition={{
-              duration: 1,
-              delay: 1,
-            }}
-          >
-            <p
-              className="
-                mb-4
-                text-[8px]
-                uppercase
-                tracking-[0.45em]
-                text-white/75
-                sm:text-[9px]
-              "
-            >
-              Faltan
-            </p>
-
-            <Countdown targetDate="2027-06-11T00:00:00" />
-          </motion.div>
-
-          {/* BOTÓN BAJAR */}
-          <motion.button
-            type="button"
-            onClick={bajarContenido}
-            aria-label="Continuar hacia la invitación"
-            className="
-              mt-6
-              flex
-              h-11
-              w-11
-              items-center
-              justify-center
-              rounded-full
-              border
-              border-white/50
-              bg-black/10
-              text-white
-              backdrop-blur-sm
-              transition
-              duration-300
-              hover:border-[#E6C98D]
-              hover:bg-[#E6C98D]
-              hover:text-[#433A34]
-              sm:mt-8
-            "
-            initial={{
-              opacity: 0,
-            }}
-            animate={
-              mostrarContenido
-                ? {
-                    opacity: 1,
-                    y: [0, 6, 0],
-                  }
-                : {
-                    opacity: 0,
-                  }
-            }
-            transition={{
-              opacity: {
-                duration: 0.8,
-                delay: 1.2,
-              },
-              y: {
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              },
-            }}
-          >
-            <ChevronDown size={18} strokeWidth={1.5} />
-          </motion.button>
-        </div>
+          <Countdown targetDate="2026-11-27T13:00:00" />
+        </motion.div>
       </motion.div>
 
       {/* INDICADOR DE MÚSICA */}
@@ -387,18 +228,18 @@ export default function Portada() {
         <motion.div
           className="
             absolute
-            left-7
+            right-7
             top-7
             z-30
             flex
             items-center
             gap-3
-            md:left-12
+            md:right-12
             md:top-12
           "
           initial={{
             opacity: 0,
-            x: -20,
+            x: 20,
           }}
           animate={{
             opacity: 1,
@@ -409,6 +250,10 @@ export default function Portada() {
             delay: 0.5,
           }}
         >
+          <p className="hidden text-[9px] uppercase tracking-[0.35em] text-white drop-shadow-md sm:block">
+            Nuestra canción
+          </p>
+
           <div
             className="
               flex
@@ -427,24 +272,12 @@ export default function Portada() {
           >
             <Music2 size={16} strokeWidth={1.5} />
           </div>
-
-          <p
-            className="
-              hidden
-              text-[9px]
-              uppercase
-              tracking-[0.35em]
-              text-white
-              drop-shadow-md
-              sm:block
-            "
-          >
-            Nuestra canción
-          </p>
         </motion.div>
       )}
 
-      {/* MODAL DE MÚSICA */}
+      {/* =========================================
+          VENTANA EMERGENTE DE MÚSICA
+      ========================================== */}
       <AnimatePresence>
         {mostrarModal && (
           <motion.div
@@ -455,9 +288,10 @@ export default function Portada() {
               flex
               items-center
               justify-center
-              bg-black/55
+              bg-[#1F2C23]/75
               px-5
-              backdrop-blur-[10px]
+              py-8
+              backdrop-blur-[9px]
             "
             initial={{
               opacity: 0,
@@ -478,19 +312,23 @@ export default function Portada() {
                 w-full
                 max-w-[390px]
                 overflow-hidden
+                rounded-t-[150px]
                 border
-                border-[#C7A46A]/40
-                bg-[#F8F5F0]
+                border-[#98AD91]/60
+                bg-[#F5F5EF]
                 px-7
-                py-9
+                pb-9
+                pt-20
                 text-center
-                shadow-[0_30px_100px_rgba(0,0,0,0.4)]
+                shadow-[0_30px_100px_rgba(20,35,25,0.55)]
                 sm:px-9
+                sm:pb-10
+                sm:pt-24
               "
               initial={{
                 opacity: 0,
-                y: 28,
-                scale: 0.96,
+                y: 35,
+                scale: 0.95,
               }}
               animate={{
                 opacity: 1,
@@ -499,41 +337,116 @@ export default function Portada() {
               }}
               exit={{
                 opacity: 0,
-                y: 20,
-                scale: 0.97,
+                y: 25,
+                scale: 0.96,
               }}
               transition={{
-                duration: 0.55,
+                duration: 0.6,
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
+              {/* TEXTURA DE PAPEL */}
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  opacity-[0.035]
+                  mix-blend-multiply
+                "
+                style={{
+                  backgroundImage:
+                    "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.35'/%3E%3C/svg%3E\")",
+                }}
+              />
+
+              {/* MARCO INTERIOR */}
               <div
                 className="
                   pointer-events-none
                   absolute
                   inset-2
+                  rounded-t-[142px]
                   border
-                  border-[#B89B5E]/15
+                  border-[#C9D0B8]
                 "
               />
 
-              <div
+              {/* RAMA BOTÁNICA IZQUIERDA */}
+              <svg
+                aria-hidden="true"
                 className="
+                  pointer-events-none
                   absolute
-                  left-1/2
-                  top-0
-                  h-px
-                  w-32
-                  -translate-x-1/2
-                  bg-gradient-to-r
-                  from-transparent
-                  via-[#B89B5E]
-                  to-transparent
+                  -left-9
+                  top-10
+                  h-44
+                  w-36
+                  rotate-[15deg]
+                  text-[#4D6953]/25
                 "
-              />
+                viewBox="0 0 250 320"
+                fill="none"
+              >
+                <path
+                  d="M31 310C76 241 95 175 111 97C118 61 132 32 159 8"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                />
 
-              <div className="relative">
-                <div
+                <path
+                  d="M95 173C64 159 42 167 25 194M106 130C79 112 57 116 39 139M116 91C96 70 80 65 59 74M85 212C113 207 134 218 146 242M106 144C133 143 151 155 163 177M125 67C146 69 162 81 171 99"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                />
+
+                <path
+                  d="M27 194C46 181 65 180 94 174C74 202 52 207 27 194ZM40 139C58 126 78 123 105 130C82 151 60 154 40 139ZM59 74C80 68 97 74 115 91C91 96 73 91 59 74ZM86 212C108 206 130 217 145 241C118 239 99 230 86 212ZM107 144C132 140 151 153 162 176C137 175 118 164 107 144ZM126 67C147 68 161 80 170 98C149 96 135 86 126 67Z"
+                  fill="currentColor"
+                  fillOpacity="0.3"
+                />
+              </svg>
+
+              {/* RAMA BOTÁNICA DERECHA */}
+              <svg
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  -right-9
+                  top-10
+                  h-44
+                  w-36
+                  -rotate-[15deg]
+                  scale-x-[-1]
+                  text-[#4D6953]/25
+                "
+                viewBox="0 0 250 320"
+                fill="none"
+              >
+                <path
+                  d="M31 310C76 241 95 175 111 97C118 61 132 32 159 8"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                />
+
+                <path
+                  d="M95 173C64 159 42 167 25 194M106 130C79 112 57 116 39 139M116 91C96 70 80 65 59 74M85 212C113 207 134 218 146 242M106 144C133 143 151 155 163 177M125 67C146 69 162 81 171 99"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                />
+
+                <path
+                  d="M27 194C46 181 65 180 94 174C74 202 52 207 27 194ZM40 139C58 126 78 123 105 130C82 151 60 154 40 139ZM59 74C80 68 97 74 115 91C91 96 73 91 59 74ZM86 212C108 206 130 217 145 241C118 239 99 230 86 212ZM107 144C132 140 151 153 162 176C137 175 118 164 107 144ZM126 67C147 68 161 80 170 98C149 96 135 86 126 67Z"
+                  fill="currentColor"
+                  fillOpacity="0.3"
+                />
+              </svg>
+
+              {/* CONTENIDO */}
+              <div className="relative z-10">
+                {/* ICONO DE MÚSICA */}
+                <motion.div
                   className="
                     mx-auto
                     flex
@@ -543,77 +456,98 @@ export default function Portada() {
                     justify-center
                     rounded-full
                     border
-                    border-[#B89B5E]/45
-                    bg-[#F3EEE6]
-                    shadow-sm
+                    border-[#98AD91]
+                    bg-[#E1E4D8]
+                    text-[#4D6953]
+                    shadow-[0_10px_28px_rgba(77,105,83,0.15)]
                   "
+                  animate={{
+                    rotate: [0, 5, -5, 0],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                 >
-                  <Music2
-                    size={21}
-                    strokeWidth={1.4}
-                    className="text-[#B89B5E]"
-                  />
-                </div>
+                  <Music2 size={21} strokeWidth={1.4} />
+                </motion.div>
 
+                {/* ETIQUETA */}
                 <p
                   className="
                     mt-6
-                    text-[9px]
+                    text-[8px]
                     uppercase
-                    tracking-[0.45em]
-                    text-[#9E8E7B]
+                    tracking-[0.48em]
+                    text-[#98AD91]
+                    sm:text-[9px]
                   "
                 >
                   Bienvenidos
                 </p>
 
+                {/* TÍTULO */}
                 <h2
                   className="
                     mt-3
                     font-serif
-                    text-[1.7rem]
+                    text-[1.75rem]
                     font-normal
                     leading-tight
-                    text-[#3F352E]
+                    text-[#30382F]
+                    sm:text-[1.9rem]
                   "
                 >
-                  Una experiencia
+                  Nuestra historia
 
                   <span
                     className="
+                      mt-1
                       block
+                      font-serif
                       italic
-                      text-[#8F7D68]
+                      text-[#4D6953]
                     "
                   >
-                    acompañada de música
+                    también tiene una canción
                   </span>
                 </h2>
 
+                {/* DIVISOR */}
                 <div
                   className="
                     mx-auto
-                    mt-5
-                    h-px
-                    w-16
-                    bg-[#C7A46A]/60
+                    my-5
+                    flex
+                    w-full
+                    max-w-[150px]
+                    items-center
+                    gap-3
                   "
-                />
+                >
+                  <span className="h-px flex-1 bg-[#98AD91]/60" />
 
+                  <span className="h-1.5 w-1.5 rotate-45 border border-[#4D6953]" />
+
+                  <span className="h-px flex-1 bg-[#98AD91]/60" />
+                </div>
+
+                {/* DESCRIPCIÓN */}
                 <p
                   className="
                     mx-auto
-                    mt-5
                     max-w-[270px]
                     text-sm
                     leading-6
-                    text-[#6D5E52]
+                    text-[#59665B]
                   "
                 >
                   Elige cómo deseas disfrutar esta invitación.
                 </p>
 
-                <div className="mt-8 flex flex-col gap-3">
+                {/* BOTONES */}
+                <div className="mt-7 flex flex-col gap-3">
                   <button
                     type="button"
                     onClick={() => iniciarExperiencia(true)}
@@ -624,23 +558,24 @@ export default function Portada() {
                       items-center
                       justify-center
                       gap-3
-                      bg-[#8F7D68]
+                      rounded-sm
+                      bg-[#4D6953]
                       px-5
                       py-3.5
-                      text-[10px]
+                      text-[9px]
                       uppercase
-                      tracking-[0.24em]
+                      tracking-[0.25em]
                       text-white
-                      shadow-[0_10px_25px_rgba(109,94,82,0.18)]
+                      shadow-[0_12px_30px_rgba(77,105,83,0.22)]
                       transition
                       duration-300
-                      hover:bg-[#756453]
+                      hover:bg-[#3E5845]
                     "
                   >
                     <Volume2
                       size={15}
                       strokeWidth={1.5}
-                      className="transition group-hover:scale-110"
+                      className="transition duration-300 group-hover:scale-110"
                     />
 
                     Activar sonido
@@ -656,39 +591,42 @@ export default function Portada() {
                       items-center
                       justify-center
                       gap-3
+                      rounded-sm
                       border
-                      border-[#B8A999]/70
+                      border-[#98AD91]
+                      bg-transparent
                       px-5
                       py-3.5
-                      text-[10px]
+                      text-[9px]
                       uppercase
-                      tracking-[0.24em]
-                      text-[#6D5E52]
+                      tracking-[0.25em]
+                      text-[#4D6953]
                       transition
                       duration-300
-                      hover:bg-[#EFE6DA]
+                      hover:bg-[#E1E4D8]
                     "
                   >
                     <VolumeX
                       size={15}
                       strokeWidth={1.5}
-                      className="transition group-hover:scale-110"
+                      className="transition duration-300 group-hover:scale-110"
                     />
 
                     Continuar en silencio
                   </button>
                 </div>
 
+                {/* NOMBRES */}
                 <p
                   className="
                     mt-6
                     font-serif
-                    text-xs
+                    text-sm
                     italic
-                    text-[#9E8E7B]
+                    text-[#718275]
                   "
                 >
-                  María & Jonathan
+                  Paola & Jonathan
                 </p>
               </div>
             </motion.div>

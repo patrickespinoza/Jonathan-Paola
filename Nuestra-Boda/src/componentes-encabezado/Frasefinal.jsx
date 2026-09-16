@@ -1,7 +1,12 @@
+// FraseBiblica.jsx
+
 import { motion } from "framer-motion";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: {
+    opacity: 0,
+    y: 35,
+  },
   show: {
     opacity: 1,
     y: 0,
@@ -18,67 +23,248 @@ export default function FraseBiblica() {
       variants={fadeUp}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true }}
-      className="relative overflow-hidden bg-[#F8F5F0] py-32 px-6"
+      viewport={{
+        once: true,
+        amount: 0.2,
+      }}
+      className="
+        relative
+        isolate
+        w-full
+        overflow-hidden
+        bg-[#4D6953]
+        px-5
+        py-12
+        sm:px-8
+        sm:py-16
+        md:px-12
+        md:py-20
+      "
     >
-      {/* Fondo */}
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,#FBF9F5_0%,#F2EBE2_100%)]" />
+      {/* TEXTURA SUAVE DEL FONDO */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          -z-20
+          opacity-[0.045]
+          mix-blend-overlay
+        "
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.35'/%3E%3C/svg%3E\")",
+        }}
+      />
 
-      {/* Luz */}
-      <div className="absolute -left-40 -top-32 w-[450px] h-[450px] rounded-full bg-white/70 blur-3xl" />
+      {/* MARCO EXTERIOR DE LA SECCIÓN */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-3
+          border
+          border-[#C9D0B8]/30
+          sm:inset-5
+          md:inset-7
+        "
+      />
 
-      <div className="absolute -right-32 bottom-0 w-[400px] h-[400px] rounded-full bg-[#C7A46A]/10 blur-3xl" />
-
-      {/* Marco */}
-      <div className="absolute inset-5 border border-[#C7A46A]/20" />
-
-      {/* Contenido */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
-
-        <p className="uppercase tracking-[0.45em] text-[#9E8E7B] text-[10px]">
-          Una promesa
-        </p>
-
-        <div className="mt-6 flex justify-center items-center gap-4">
-          <span className="w-14 h-px bg-[#C7A46A]/60"></span>
-
-          <span className="w-2 h-2 rotate-45 border border-[#B89B5E]"></span>
-
-          <span className="w-14 h-px bg-[#C7A46A]/60"></span>
-        </div>
-
-        <motion.blockquote
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.4 }}
+      {/* CONTENEDOR PRINCIPAL */}
+      <motion.div
+        className="
+          relative
+          mx-auto
+          w-full
+          max-w-5xl
+        "
+        initial={{
+          opacity: 0,
+          scale: 0.97,
+        }}
+        whileInView={{
+          opacity: 1,
+          scale: 1,
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          duration: 1.1,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
+        {/* SOMBRA */}
+        <div
           className="
-          mt-12
-          font-serif
-          italic
-          text-[#433A34]
-          leading-[1.5]
-          text-[2rem]
-          sm:text-[2.6rem]
-          md:text-[3.2rem]
+            absolute
+            inset-x-10
+            -bottom-4
+            h-16
+            rounded-full
+            bg-black/30
+            blur-2xl
+          "
+        />
+
+        {/* MARCO DE LA FOTOGRAFÍA */}
+        <div
+          className="
+            relative
+            border
+            border-[#C9D0B8]/70
+            bg-[#E1E4D8]
+            p-2
+            shadow-[0_25px_70px_rgba(20,35,25,0.38)]
+            sm:p-3
+            md:p-4
           "
         >
-          Donde quiera que vayas,
-          <br />
-          iré yo también.
-          <br />
-          <br />
-          Donde tú permanezcas,
-          <br />
-          permaneceré contigo.
-        </motion.blockquote>
+          {/* MARCO INTERIOR */}
+          <div
+            className="
+              pointer-events-none
+              absolute
+              inset-4
+              z-20
+              border
+              border-white/40
+              sm:inset-5
+              md:inset-6
+            "
+          />
 
-        <div className="mt-14 w-28 h-px bg-gradient-to-r from-transparent via-[#C7A46A] to-transparent mx-auto"></div>
+          {/* ESQUINAS DECORATIVAS */}
+          <span
+            className="
+              pointer-events-none
+              absolute
+              left-2
+              top-2
+              z-30
+              h-8
+              w-8
+              border-l
+              border-t
+              border-[#4D6953]/70
+              sm:left-3
+              sm:top-3
+            "
+          />
 
-        <p className="mt-7 uppercase tracking-[0.45em] text-[#8F7D68] text-xs">
-          Libro de Rut 1:16
-        </p>
+          <span
+            className="
+              pointer-events-none
+              absolute
+              right-2
+              top-2
+              z-30
+              h-8
+              w-8
+              border-r
+              border-t
+              border-[#4D6953]/70
+              sm:right-3
+              sm:top-3
+            "
+          />
 
-      </div>
+          <span
+            className="
+              pointer-events-none
+              absolute
+              bottom-2
+              left-2
+              z-30
+              h-8
+              w-8
+              border-b
+              border-l
+              border-[#4D6953]/70
+              sm:bottom-3
+              sm:left-3
+            "
+          />
+
+          <span
+            className="
+              pointer-events-none
+              absolute
+              bottom-2
+              right-2
+              z-30
+              h-8
+              w-8
+              border-b
+              border-r
+              border-[#4D6953]/70
+              sm:bottom-3
+              sm:right-3
+            "
+          />
+
+          {/* FOTOGRAFÍA */}
+          <div
+            className="
+              relative
+              h-[72svh]
+              min-h-[600px]
+              max-h-[680px]
+              w-full
+              overflow-hidden
+              bg-[#30382F]
+              sm:h-[74vh]
+              sm:min-h-[570px]
+              sm:max-h-[760px]
+              md:h-[650px]
+              md:max-h-none
+            "
+          >
+            <motion.img
+              src="/separador.jpg"
+              alt="Paola y Jonathan"
+              loading="eager"
+              decoding="async"
+              draggable={false}
+              className="
+                h-full
+                w-full
+                object-cover
+              "
+              style={{
+                objectPosition: "center 50%",
+              }}
+              initial={{
+                scale: 1.06,
+              }}
+              whileInView={{
+                scale: 1,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                duration: 6,
+                ease: "easeOut",
+              }}
+            />
+
+            {/* OSCURECIMIENTO MUY SUAVE */}
+            <div className="pointer-events-none absolute inset-0 bg-black/5" />
+
+            {/* TONO VERDE LIGERO PARA INTEGRAR LA PALETA */}
+            <div
+              className="
+                pointer-events-none
+                absolute
+                inset-0
+                bg-[#4D6953]/5
+                mix-blend-multiply
+              "
+            />
+          </div>
+        </div>
+      </motion.div>
     </motion.section>
   );
 }

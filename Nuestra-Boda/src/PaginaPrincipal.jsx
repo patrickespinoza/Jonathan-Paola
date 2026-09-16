@@ -1,5 +1,4 @@
 import React from "react";
-import Carousel from "./componentes-encabezado/carrusel";
 import Itinerario from "./componentes-encabezado/Itinerario";
 import Preguntas from "./componentes-encabezado/Preguntas";
 import Regalos from "./componentes-encabezado/Regalos";
@@ -37,10 +36,10 @@ export default function PaginaPrincipal() {
   
   <Regalos/>
 
-  <ImagenSeparacion/>
   
   <Confirmacion/>
   
+  <ImagenSeparacion/>
 
       </div>      
   );
