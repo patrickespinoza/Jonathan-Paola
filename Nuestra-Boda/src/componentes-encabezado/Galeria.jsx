@@ -34,7 +34,7 @@ const images = [
   },
   {
     src: "/Carrusel06.jpeg",
-    position: "60% 50%",
+    position: "35% 50%",
   },
   {
     src: "/Carrusel07.jpeg",
